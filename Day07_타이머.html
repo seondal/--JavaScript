@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Day07</title>
+        <script language="javascript">
+        
+        var h = 0;
+        var m = 0;
+        var s = 0;
+
+        var hour = document.getElementsByClassName("hour");
+        var minute = document.getElementsByClassName("minute");
+        var second = document.getElementsByClassName("second");
+
+        var timer;
+
+        function timeGo() {
+
+            console.log("시간 가는중");
+
+            //타이머 작동
+            s++;
+            if(s>60){
+                s = 0;
+                m++;
+            }
+            if(m>60){
+                m = 0;
+                h++;
+            }
+
+            //타이머 반영
+            second[0].innerHTML = s;
+            minute[0].innerHTML = m;
+            hour[0].innerHTML = h;
+        }
+
+        function start() {
+            timer = setInterval(() => timeGo(), 1000);
+        }
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+        function reset() {
+            s = 0;
+            m = 0;
+            h = 0;
+
+            second[0].innerHTML = s;
+            minute[0].innerHTML = m;
+            hour[0].innerHTML = h;
+        }
+
+            
+        </script>
+	</head>
+
+	<body>
+        <div style="display: flex; flex-direction: row;">
+            <h1 class="hour">0</h1>
+            <h1>:</h1>
+            <h1 class="minute">0</h1>
+            <h1>:</h1>
+            <h1 class="second">0</h1>
+        </div> 
+        
+        <button onclick="start()">시작</button>
+        <button onclick="stop()">멈춤</button>
+        <button onclick="reset()">초기화</button>
+	</body>
+</html>
