@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Day09</title>
+        <script language="javascript">
+            var mg = {
+                name : "새마을금고",
+                free : "입출금이자유로운통장",
+                saving: "적립식통장",
+            }
+            var nh = {
+                name : "농협은행",
+                free : "입출식통장",
+                saving: "없음",
+            }
+            var sh = {
+                name : "신한은행",
+                free : "쏠편한 입출금통장",
+                saving: "신한 마이홈 적금",
+            }
+            var kakao = {
+                name : "카카오뱅크",
+                free : "입출금통장",
+                saving: "26주적금 챌린지",
+            }
+
+            var bank = document.getElementsByTagName("h2");
+            var free = document.getElementsByClassName("free");
+            var saving = document.getElementsByClassName("saving");
+
+
+            function changeMg() {
+                bank[0].innerHTML = mg.name;
+                free[0].innerHTML = mg.free;
+                saving[0].innerHTML = mg.saving;
+            }
+            function changeNh() {
+                bank[0].innerHTML = nh.name;
+                free[0].innerHTML = nh.free;
+                saving[0].innerHTML = nh.saving;
+            }
+            function changeSh() {
+                bank[0].innerHTML = sh.name;
+                free[0].innerHTML = sh.free;
+                saving[0].innerHTML = sh.saving;
+            }
+            function changeKakao() {
+                bank[0].innerHTML = kakao.name;
+                free[0].innerHTML = kakao.free;
+                saving[0].innerHTML = kakao.saving;
+            }
+        </script>
+	</head>
+
+	<body>
+        <button onclick="changeMg()">새마을금고</button>
+        <button onclick="changeNh()">농협</button>
+        <button onclick="changeSh()">신한</button>
+        <button onclick="changeKakao()">카카오뱅크</button>
+        
+        <h2>은행이름</h2>
+        <li class="free"></li>
+        <li class="saving"></li>
+	</body>
+</html>
