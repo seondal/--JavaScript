@@ -1,3 +1,7 @@
+document.getElementById("button").addEventListener("click", onClick);
+
+var followState = 0;
+
 function onClick() {
   var value = document.getElementById("input").value;
 
@@ -15,10 +19,27 @@ function onClick() {
     document.getElementsByClassName("say")[0].innerHTML = "변덕스럽네;";
     var background = document.getElementsByTagName("body");
     background[0].style.backgroundColor = "#daddfc";
+  } else if (value == "날따라해봐요") {
+    followState = 1;
+    follow();
   } else {
     document.getElementsByClassName("say")[0].innerHTML =
       "저는 멍청해서 할줄아는 말이 별로 없어요";
   }
 }
 
-document.getElementById("button").addEventListener("click", onClick);
+function follow() {
+  if (followState == 1) {
+    document.getElementsByClassName("say")[0].innerHTML = "이렇게~";
+    var value = document.getElementById("input").value;
+
+    if (value == "멈춰!") {
+      document.getElementsByClassName("say")[0].innerHTML = "ㅇㅋ";
+      followState = 0;
+      document.getElementById("button").addEventListener("click", onClick);
+    } else {
+      document.getElementsByClassName("say")[0].innerHTML = value;
+      document.getElementById("button").addEventListener("click", follow);
+    }
+  }
+}
