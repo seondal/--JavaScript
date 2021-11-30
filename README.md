@@ -1,4 +1,4 @@
-### Deployed
+### Link
 https://seondal.github.io/ChatBot/ChatBot/index.html
 
 <br>
